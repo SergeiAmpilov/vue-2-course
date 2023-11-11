@@ -16,6 +16,17 @@
     <a v-bind:href="url">{{ url }}</a>
 
     <h2 v-html="htmlTemplate"></h2>
+    <div>
+      <h3>Counter = {{ counter }}</h3>
+      <button v-on:click="up">Up</button>
+      <button v-on:click="down">Down</button>
+    </div>
+
+    <div>
+      <h3 v-on:mouseover="onHover">Counter = {{ counter2 }}</h3>
+      <button v-on:click=" counter2++ ">Up</button>
+      <button v-on:click=" counter2-- ">Down</button>
+    </div>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
@@ -26,7 +37,9 @@
       data: {
         name: 'Sergei',
         url: 'https://www.google.ru/',
-        htmlTemplate: '<a href="https://www.google.ru/">Googlr</a>'
+        htmlTemplate: '<a href="https://www.google.ru/">Googlr</a>',
+        counter: 0,
+        counter2: 0
       },
       methods: {
         changeName: function(event) {
@@ -34,7 +47,12 @@
         },
         sayHello: function() {
           return 'Hello ' + this.name;
-        }
+        },
+        up: function() { this.counter += 1; },
+        down: function() { this.counter -= 1; },
+        onHover: function(event) {
+          event.target.style.color = 'red'
+        },
       }
     });
 

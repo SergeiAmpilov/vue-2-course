@@ -15,6 +15,7 @@
     <p>Method: {{ sayHello() }}</p>
     <a v-bind:href="url">{{ url }}</a>
 
+    <h2 v-html="htmlTemplate"></h2>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
@@ -24,7 +25,8 @@
       el: '#app',
       data: {
         name: 'Sergei',
-        url: 'https://www.google.ru/'
+        url: 'https://www.google.ru/',
+        htmlTemplate: '<a href="https://www.google.ru/">Googlr</a>'
       },
       methods: {
         changeName: function(event) {

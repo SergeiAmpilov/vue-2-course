@@ -11,7 +11,8 @@
     <input 
       type="text"
       v-on:input="changeName">
-    <h1>This is Vue application - {{ name }}</h1>
+    <h1>This is Vue application - {{ name }} - {{ 12 + 13 }}</h1>
+    <p>Method: {{ sayHello() }}</p>
 
   </div>
   
@@ -26,6 +27,9 @@
       methods: {
         changeName: function(event) {
           this.name = event.target.value;
+        },
+        sayHello: function() {
+          return 'Hello ' + this.name;
         }
       }
     });

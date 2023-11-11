@@ -23,6 +23,10 @@
     </h2>
     <button @click="counter += 3">+++</button>
 
+    <hr>
+    <input type="text" v-model.lazy="inputValue">
+    <h2>{{ inputValue }}</h2>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
@@ -33,6 +37,7 @@
       data: {
         url: 'https://github.com/SergeiAmpilov',
         counter: 0,
+        inputValue: ''
       },
       methods: {
         alertValue: function(evt) {

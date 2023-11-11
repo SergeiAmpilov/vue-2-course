@@ -13,6 +13,7 @@
       v-on:input="changeName">
     <h1>This is Vue application - {{ name }} - {{ 12 + 13 }}</h1>
     <p>Method: {{ sayHello() }}</p>
+    <a v-bind:href="url">{{ url }}</a>
 
   </div>
   
@@ -22,7 +23,8 @@
     new Vue({
       el: '#app',
       data: {
-        name: 'Sergei'
+        name: 'Sergei',
+        url: 'https://www.google.ru/'
       },
       methods: {
         changeName: function(event) {

@@ -5,11 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Animate Vue.js</title>
   <link rel="stylesheet" href="style.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 <body>
 
   <div id="app">
 
+    <button @click="vsl = !vsl">Toggle visible</button>
+
+    <transition
+      enter-active-class="animate__animated animate__bounce"
+      leave-active-class="animate__animated animate__pulse"
+    >
+      <p v-if="vsl">Lorem ipsum dolor sit amet consectetur.</p>
+
+    </transition>
+
+
+    <hr>
     <h1>Animate js</h1>
 
     <button
@@ -26,6 +42,34 @@
       </p>
     </transition>
 
+    <hr>
+    <transition
+      enter-active-class="animated bounce"
+    >
+    {{ names[0] }}
+      <div>
+      </div>
+    </transition>
+
+    <button @click="names.push('Lida')">Add</button>
+    <button @click="names.shift()">remove</button>
+    
+    
+    <transition-group
+      name="ma"
+    >
+      <div 
+        :key="name"
+        v-for="name in names" 
+        style="padding: 20px 10px; border: 1px solid black;"
+      >
+            {{ name }}
+  
+      </div>
+    </transition-group>
+    
+
+
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
@@ -35,6 +79,8 @@
       el: '#app',
       data: {
         show: true,
+        vsl: true,
+        names: ['Ivan', 'Maria', 'Fekla']
         
       },
       methods: {

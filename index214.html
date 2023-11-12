@@ -12,10 +12,32 @@
   <div id="app">
 
     <input type="text" v-model="newPerson">
-    <button @click="people.push(newPerson)">Add new</button>
+    <button @click="addItem">Add new</button>
     <ul>
       <li v-for="(person, index) in people" >{{index + 1}} - {{ person }}</li>
     </ul>
+
+    <hr>
+
+    <ul>
+      <li v-for="car in cars">{{ car.name }} - {{ car.price }} $</li>
+    </ul>
+
+    <hr>
+
+    <ol>
+      <li v-for="num in 10">{{ num ** 2}}</li>
+    </ol>
+
+    <hr>
+
+    <ul>
+      <li v-for="(value, key) in vacation">
+        {{ key }} - {{ value }}
+      </li>
+    </ul>
+
+
 
   </div>
 
@@ -28,11 +50,31 @@
       data: {
         newPerson: '',
         people: [
-          'Sergei',
-          'Fedor',
-          'Gevorg',
-          'Goar'
+          // 'Sergei',
+          // 'Fedor',
+          // 'Gevorg',
+          // 'Goar'
         ],
+        cars: [
+          { name: 'Ford', price: 12500 },
+          { name: 'Lexus', price: 44000 },
+        ],
+        vacation: {
+          region: 'Bahamas',
+          price: 5600,
+          type: 'surfing'
+        },
+      },
+      methods: {
+        
+        addItem: function() {
+          const $this = this;
+          this.people.push(this.newPerson);
+          setTimeout(function() {
+            $this.people.shift()
+          },3000)
+        }
+
       }
     });
   </script>

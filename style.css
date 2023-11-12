@@ -1,0 +1,46 @@
+h1 {
+  color: blue;
+}
+
+
+/* этапы появления анимации */
+.ma-enter {
+  opacity: 0;
+}
+
+.ma-enter-active {
+  transition: opacity 1s;
+
+}
+
+.ma-enter-to {
+  
+}
+
+
+/* анимация исчезновения */
+
+.ma-leave {
+
+}
+
+.ma-leave-active {
+  animation: 1s ma-slide forwards;
+  transition: opacity 1s;
+}
+
+.ma-leave-to {
+  opacity: 0;
+  
+}
+
+
+
+@keyframes ma-slide {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-100px);
+  }
+}

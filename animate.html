@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Animate Vue.js</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -12,12 +13,18 @@
     <h1>Animate js</h1>
 
     <button
-      @click="show = !show"
+      @click="showText"
     >Toggle</button>
 
-    <p v-if="show">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, eius.
-    </p>
+    <transition 
+      name="ma"
+      :duration="{enter: 1500, leave: 50}"
+      appear
+    >
+      <p v-if="show">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, eius.
+      </p>
+    </transition>
 
   </div>
   
@@ -27,9 +34,25 @@
     new Vue({
       el: '#app',
       data: {
-        show: false,
+        show: true,
+        
+      },
+      methods: {
+        showText: function() {
+          this.show = true;
+
+          const $this = this;
+          setTimeout(function() {
+            $this.show = false;
+          }, 3000);
+
+        },
+        hideText: function() {
+          this.show = false;
+        }
       }
     })
   </script>
+
 </body>
 </html>

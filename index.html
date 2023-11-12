@@ -1,88 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vue Application</title>
-</head>
-<body>
-  
-  <div id="app">
-
-    <h2>
-      <a href="https://www.google.ru/" target="_blank" v-on:click.prevent>Google blank</a>
-    </h2>
-    <h2 v-on:mousemove="handleMouseMove">
-      X: {{ x }} | Y: {{ y }}
-      <span v-on:mousemove.stop>Do not change</span>
-    </h2>
-    <hr>
-    <input 
-      type="text"
-      v-on:input="changeName">
-    <h1>This is Vue application - {{ name }} - {{ 12 + 13 }}</h1>
-    <p>Method: {{ sayHello() }}</p>
-    <a v-bind:href="url">{{ url }}</a>
-
-    <h2 v-html="htmlTemplate"></h2>
-
-    <div>
-      <h2>Counter: {{ counter3 }}</h2>
-      <button v-on:click="riseCounter(5, $event)">Up</button>
-
-    </div>
-    <hr>
-    <div>
-      <h3>Counter = {{ counter }}</h3>
-      <button v-on:click="up">Up</button>
-      <button v-on:click="down">Down</button>
-    </div>
-
-    <div>
-      <h3 v-on:mouseover="onHover">Counter = {{ counter2 }}</h3>
-      <button v-on:click=" counter2++ ">Up</button>
-      <button v-on:click=" counter2-- ">Down</button>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
-  <script>
-
-    new Vue({
-      el: '#app',
-      data: {
-        name: 'Sergei',
-        url: 'https://www.google.ru/',
-        htmlTemplate: '<a href="https://www.google.ru/">Googlr</a>',
-        counter: 0,
-        counter2: 0,
-        counter3: 0,
-        x: 0,
-        y: 0
-      },
-      methods: {
-        changeName: function(event) {
-          this.name = event.target.value;
-        },
-        sayHello: function() {
-          return 'Hello ' + this.name;
-        },
-        up: function() { this.counter += 1; },
-        down: function() { this.counter -= 1; },
-        onHover: function(event) {
-          event.target.style.color = 'red'
-        },
-        riseCounter: function(number, event) { 
-          this.counter3 += number; 
-          console.log(event.target);
-        },
-        handleMouseMove: function(event) {
-          this.x = event.clientX;
-          this.y = event.clientY;
-        },
-      }
-    });
-
-  </script>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>vue-project</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="/dist/build.js"></script>
+  </body>
 </html>

@@ -13,7 +13,8 @@
   
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
   <script>
-    Vue.component('my-counter', {
+
+    const component = {
       data: function() {
         return {
           counter: 0
@@ -30,11 +31,14 @@
           <button @click="add">Add</button>
         </div>
       `,
+    };
 
-    });
 
     new Vue({
-      el: '#app'
+      el: '#app',
+      components: {
+        'my-counter': component
+      },
     })
 
   </script>

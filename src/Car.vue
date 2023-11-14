@@ -3,6 +3,7 @@
   <div class="car">
     <h3>Name: {{ carName }} / {{ reverseName }}</h3>
     <p>Year: {{ carYear }}</p>
+    <button @click="changeName">Change name</button>
   </div>
 </template>
 
@@ -19,6 +20,12 @@
         default: 'default name'
       },
       carYear: Number
+    },
+    methods: {
+      changeName() {
+        this.carName = 'Opel Vectra';
+        this.$emit('nameChanged', this.carName);
+      },
     },
     computed: {
       reverseName: function() {

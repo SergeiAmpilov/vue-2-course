@@ -8,7 +8,7 @@
 
     <app-car
       carName="Lexus"
-      carYear="1994"
+      :carYear="1994"
     ></app-car>
   </div>
 </template>

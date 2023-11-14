@@ -5,17 +5,19 @@
       :carName="carName"
       :carYear="carYear"
       @nameChanged="carName = $event"
+      :counter="counter"
+      @updateCounter="counter = $event"
     ></app-car>
 
-    <app-car
-      carName="Lexus"
-      :carYear="1994"
-    ></app-car>
+    <hr>
+    <app-counter :counter="counter"></app-counter>
+
   </div>
 </template>
 
 <script>
 import Car from './Car.vue'
+import Counter from './Counter.vue'
 
 
 export default {
@@ -23,11 +25,13 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       carName: 'Toyota',
-      carYear: 2003
+      carYear: 2003,
+      counter: 0
     }
   },
   components: {
     appCar: Car,
+    appCounter: Counter,
   }
 }
 </script>

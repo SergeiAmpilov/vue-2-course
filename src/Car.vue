@@ -4,6 +4,9 @@
     <h3>Name: {{ carName }} / {{ reverseName }}</h3>
     <p>Year: {{ carYear }}</p>
     <button @click="changeName">Change name</button>
+    <button
+      @click="updateCounter"
+    >Update counter</button>
   </div>
 </template>
 
@@ -17,14 +20,19 @@
       carName: {
         type: String,
         required: true,
-        default: 'default name'
+        default: 'default name',
       },
+      counter: Number,
       carYear: Number
     },
     methods: {
       changeName() {
         this.carName = 'Opel Vectra';
         this.$emit('nameChanged', this.carName);
+      },
+      updateCounter() {
+        this.$emit('updateCounter', this.counter++);
+
       },
     },
     computed: {

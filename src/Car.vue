@@ -11,18 +11,18 @@
 </template>
 
 <script>
+import { eventEmitter } from './main';
+
   export default {
     data() {
       return {};
     },
-    // props: ['carName', 'carYear' ],
     props: {
       carName: {
         type: String,
         required: true,
         default: 'default name',
       },
-      counter: Number,
       carYear: Number
     },
     methods: {
@@ -31,7 +31,7 @@
         this.$emit('nameChanged', this.carName);
       },
       updateCounter() {
-        this.$emit('updateCounter', this.counter++);
+        eventEmitter.$emit('updateCounter', 4)
 
       },
     },

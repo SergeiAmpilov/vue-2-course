@@ -1,6 +1,9 @@
 <template>
 
+<div>
   <h3>Counter: {{ counter }}</h3>
+</div>
+
 </template>
 <script>
 import { eventEmitter } from './main';
@@ -24,4 +27,9 @@ export default {
 }
 
 </script>
-<style></style>
+<style scoped>
+  div {
+    padding: 10px;
+    border: 1px solid blue;
+  }
+</style>

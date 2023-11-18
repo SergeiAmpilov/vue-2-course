@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+    <container>
+      <h2 slot="title">content from html</h2>
+      <span slot="text">{{ msg }}</span>
+    </container>
+    <hr>
     <h1>Parent: {{ carName }}</h1>
     <app-car
       :carName="carName"
@@ -9,14 +14,18 @@
     ></app-car>
 
     <hr>
-    <app-counter></app-counter>
+    <app-counter>
+      <h3>Pre header</h3>
+    </app-counter>
 
   </div>
 </template>
 
 <script>
 import Car from './Car.vue'
+import Container from './Container.vue';
 import Counter from './Counter.vue'
+
 
 
 export default {
@@ -30,6 +39,7 @@ export default {
   components: {
     appCar: Car,
     appCounter: Counter,
+    container: Container
   }
 }
 </script>

@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <filt></filt>
+    <hr>
     <container>
       <h2 slot="title">content from html</h2>
       <span slot="text">{{ msg }}</span>
@@ -25,6 +27,7 @@
 import Car from './Car.vue'
 import Container from './Container.vue';
 import Counter from './Counter.vue'
+import Filter from './Filter.vue';
 
 
 
@@ -39,7 +42,8 @@ export default {
   components: {
     appCar: Car,
     appCounter: Counter,
-    container: Container
+    container: Container,
+    filt: Filter
   }
 }
 </script>

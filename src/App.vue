@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <filt></filt>
+    <app-list></app-list>
+    <hr>
     <hr>
     <container>
       <h2 slot="title">content from html</h2>

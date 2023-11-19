@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1 v-colored="'green'">{{ title }}</h1>
-    <p v-colored="'yellow'">Lorem ipsum dolor sit.</p>
+    <h1 v-colored:color="'green'">{{ title }}</h1>
+    <p v-colored:background="'yellow'">Lorem ipsum dolor sit.</p>
     <slot name="title"></slot>
     <hr>
     <slot name="text"></slot>
